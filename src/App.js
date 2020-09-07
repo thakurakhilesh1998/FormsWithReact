@@ -3,21 +3,30 @@ import './index.css';
 
 const App=()=>{
 const [name,setName]=useState();
-const [fullanme,setFullName]=useState();
+const [lastName,setLastName]=useState('');
+const [fullanme,setFullName]=useState('');
+
   const onInputTyped=(event)=>{
     setName(event.target.value);
   }
 
-  const getName=()=>{
-    setFullName(name);
+  const onLastNameTyped=(event)=>{
+    setLastName(event.target.value);
+  }
+  const getName=(e)=>{
+    e.preventDefault();
+    setFullName(`${name} ${lastName}`);
   }
 
   return(
       <>
-        <div id="form">
-          <h1>Hello {fullanme}</h1>
-          <input type="text" id="name" placeholder="Full Name" value={name} onChange={onInputTyped}></input>
-          <button id="btn" onClick={getName}>Get Name</button>
+        <div>
+          <form className="form" onSubmit={getName}>
+            <h1>Hello {fullanme}</h1>
+            <input type="text" className="name" placeholder="First Name" value={name} onChange={onInputTyped}></input>
+             <input type="text" className="name" placeholder="Last Name" value={lastName} onChange={onLastNameTyped}></input>
+            <button id="btn" type="submit">Get Name</button>
+          </form>
         </div>
       </>
   );
