@@ -16,7 +16,7 @@ const [details,setDetails]=useState({fname:'',lname:'',email:''});
         case("fname"):
         return{
         fname:value,
-        lname:pre.lastName,
+        lname:pre.lname,
         email:pre.email
           };
         case("lname"):
@@ -45,7 +45,7 @@ const [details,setDetails]=useState({fname:'',lname:'',email:''});
       <>
         <div>
           <form className="form" onSubmit={getName}>
-            <h1>Hello {details.fname} <span>{details.lname}</span></h1>
+            <h1>Hello {details.fname} {details.lname}</h1>
             <h1 id='email'>{details.email}</h1>
             <input type="text" className="name" placeholder="First Name" name="fname" value={details.fname} onChange={onInputTyped}></input>
              <input type="text" className="name" placeholder="Last Name" name="lname" value={details.lname} onChange={onInputTyped}></input>
