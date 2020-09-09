@@ -11,39 +11,43 @@ const [details,setDetails]=useState({fname:'',lname:'',email:'',phone:''});
       const value=event.target.value;
     setDetails((pre)=>{
     
-      switch(name)
-      {
-        case("fname"):
-        return{
-        fname:value,
-        lname:pre.lname,
-        email:pre.email,
-        phone:pre.phone,
-          };
-        case("lname"):
-        return{
-          fname:pre.fname,
-          lname:value,
-          email:pre.email,
-          phone:pre.phone,
-        };
-        case("email"):
-        return{
-        fname:pre.fname,
-        lname:pre.lname,
-        email:value,
-        phone:pre.phone,
+      return{
+        ...pre,
+        [name]:value,
       }
+      // switch(name)
+      // {
+      //   case("fname"):
+      //   return{
+      //   fname:value,
+      //   lname:pre.lname,
+      //   email:pre.email,
+      //   phone:pre.phone,
+      //     };
+      //   case("lname"):
+      //   return{
+      //     fname:pre.fname,
+      //     lname:value,
+      //     email:pre.email,
+      //     phone:pre.phone,
+      //   };
+      //   case("email"):
+      //   return{
+      //   fname:pre.fname,
+      //   lname:pre.lname,
+      //   email:value,
+      //   phone:pre.phone,
+      // }
 
-        case("phone"):
-        return{
-          fname:pre.fname,
-          lname:pre.lname,
-          email:pre.email,
-          phone:value,
-        };
+      //   case("phone"):
+      //   return{
+      //     fname:pre.fname,
+      //     lname:pre.lname,
+      //     email:pre.email,
+      //     phone:value,
+      //   };
 
-      }
+      // }
 
     });
   }
